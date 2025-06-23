@@ -1,24 +1,23 @@
-# MindMirror - AI-Powered Mental Wellness Journal
+# MindMirror - Simple Mental Wellness Journal
 
-MindMirror is a full-stack web application designed to support mental wellness through AI-assisted journaling. The platform provides users with a safe space to record their thoughts and receive compassionate AI feedback from Dr. Mira, your virtual therapist.
+A beginner-friendly mental health journaling app with AI therapy assistant. Built with vanilla JavaScript to focus on learning fundamentals while creating something meaningful.
 
 ## Features
 
-- **AI Therapist Assistant**: Receive psychology-based responses, insights, and guidance from Dr. Mira
-- **Journal Editor**: Write daily reflections with mood tracking and privacy controls
-- **Personalized Insights**: Discover patterns in your emotional journey and growth areas
-- **Mood Analytics**: Track emotional trends and receive actionable recommendations
-- **Advice Generator**: Get personalized coping strategies and mental wellness exercises
-- **Dashboard**: View timeline of entries, AI responses, and insights all in one place
+- **AI Therapist (Dr. Mira)**: Get supportive responses and follow-up questions for your journal entries
+- **Mood Tracking**: Select your daily mood with emoji buttons
+- **Personal Insights**: AI analyzes your writing patterns to identify growth areas and strengths  
+- **Timeline View**: See all your journal entries and AI responses in chronological order
+- **Privacy Controls**: Mark sensitive entries as private
+- **Simple Authentication**: Email/password login system
 
 ## Tech Stack
 
-- **Frontend**: React, TypeScript, Tailwind CSS, Wouter (routing)
-- **Backend**: Express.js, TypeScript
-- **Database**: PostgreSQL with Drizzle ORM
+- **Frontend**: HTML, CSS, Vanilla JavaScript
+- **Backend**: Node.js with Express
+- **Database**: SQLite with better-sqlite3
 - **AI**: OpenAI GPT-4 for therapeutic responses
-- **Authentication**: Replit Auth (OpenID Connect)
-- **Deployment**: Replit
+- **Authentication**: Simple session-based auth
 
 ## Color Palette
 
@@ -31,9 +30,9 @@ MindMirror is a full-stack web application designed to support mental wellness t
 
 1. Clone the repository
 2. Install dependencies: `npm install`
-3. Set up environment variables (see Environment Variables section)
-4. Push database schema: `npm run db:push`
-5. Start the development server: `npm run dev`
+3. Set up your OpenAI API key (see Environment Variables section)
+4. Start the app: `npm run dev` or `node app.js`
+5. Open your browser to `http://localhost:5000`
 
 ## Adding to GitHub
 

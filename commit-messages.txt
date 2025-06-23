@@ -1,0 +1,21 @@
+# Suggested Commit Messages for MindMirror Project
+
+git commit -m "initial commit: basic journal app structure"
+
+git commit -m "add user auth and sqlite setup - login finally works!"
+
+git commit -m "fixed entry saving bug that was driving me crazy"
+
+git commit -m "integrate openai for therapy responses - dr mira is alive"
+
+git commit -m "trying to center the login box properly... css is hard"
+
+git commit -m "mood tracking with emoji buttons + timeline view"
+
+git commit -m "add insights panel and loading animations"
+
+git commit -m "mobile responsive design + keyboard shortcuts"
+
+git commit -m "polish ui colors and add notifications"
+
+git commit -m "final touches: documentation and cleanup"

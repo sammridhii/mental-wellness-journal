@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMirror - Your Mental Wellness Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login/Register Screen (shows first time) -->
+    <div id="authScreen" class="screen active">
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <h1>MindMirror</h1>
+                </div>
+                <p class="tagline">Your safe space for mental wellness and reflection</p>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form active">
+                <h2>Welcome Back</h2>
+                <form id="loginFormElement">
+                    <div class="input-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+                <p class="auth-switch">
+                    Don't have an account? 
+                    <a href="#" onclick="showRegister()">Create one</a>
+                </p>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerForm" class="auth-form">
+                <h2>Start Your Journey</h2>
+                <form id="registerFormElement">
+                    <div class="input-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName">
+                    </div>
+                    <div class="input-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                </form>
+                <p class="auth-switch">
+                    Already have an account? 
+                    <a href="#" onclick="showLogin()">Sign in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Screen -->
+    <div id="mainScreen" class="screen">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🧠</div>
+                    <span>MindMirror</span>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-secondary" onclick="showInsights()">📊 Insights</button>
+                    <div class="user-menu">
+                        <span id="userGreeting">Hello!</span>
+                        <button class="btn-ghost" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <h2 id="welcomeMessage">Welcome back!</h2>
+                <p>Take a moment to reflect on your day and share what's on your mind.</p>
+                <button class="btn-primary" onclick="showJournalEditor()">
+                    ✏️ New Journal Entry
+                </button>
+            </section>
+
+            <!-- Journal Editor (hidden by default) -->
+            <div id="journalEditor" class="journal-editor hidden">
+                <div class="editor-header">
+                    <h3>Today's Reflection</h3>
+                    <button class="btn-ghost" onclick="hideJournalEditor()">✕</button>
+                </div>
+                
+                <!-- Mood Selector -->
+                <div class="mood-section">
+                    <label>How are you feeling today?</label>
+                    <div class="mood-options">
+                        <button class="mood-btn" data-mood="happy" data-score="5">😊 Happy</button>
+                        <button class="mood-btn" data-mood="neutral" data-score="3">😐 Neutral</button>
+                        <button class="mood-btn" data-mood="sad" data-score="2">😢 Sad</button>
+                        <button class="mood-btn" data-mood="anxious" data-score="2">😰 Anxious</button>
+                        <button class="mood-btn" data-mood="excited" data-score="5">✨ Excited</button>
+                        <button class="mood-btn" data-mood="tired" data-score="3">😴 Tired</button>
+                    </div>
+                </div>
+
+                <!-- Text Editor -->
+                <div class="text-editor">
+                    <textarea id="journalContent" placeholder="What's on your mind today? Share your thoughts, feelings, or any struggles you're experiencing. This is your safe space..."></textarea>
+                </div>
+
+                <!-- Editor Actions -->
+                <div class="editor-actions">
+                    <label class="privacy-toggle">
+                        <input type="checkbox" id="isPrivate">
+                        <span>🔒 Keep this entry private</span>
+                    </label>
+                    <button class="btn-primary" onclick="saveJournalEntry()">
+                        💾 Save Entry
+                    </button>
+                </div>
+            </div>
+
+            <!-- Journal Timeline -->
+            <section class="timeline-section">
+                <h3>📖 Your Recent Reflections</h3>
+                <div id="journalTimeline" class="timeline">
+                    <!-- Journal entries will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Insights Panel -->
+            <div id="insightsPanel" class="insights-panel hidden">
+                <div class="panel-header">
+                    <h3>🔍 Your Personal Insights</h3>
+                    <button class="btn-ghost" onclick="hideInsights()">✕</button>
+                </div>
+                <div id="insightsContent">
+                    <!-- Insights will be loaded here -->
+                </div>
+                <button class="btn-secondary" onclick="generateNewInsights()">
+                    ✨ Generate New Insights
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Dr. Mira is analyzing your entry...</p>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="notification hidden">
+        <span id="notificationText"></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
