@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(36, 100%, 94.9%); /* #FFF2E0 - warm cream */
+  --foreground: hsl(237, 13%, 33.3%); /* #4A4A5C - text-warm */
+  --muted: hsl(234, 30%, 85.9%); /* #C0C9EE - lavender-light */
+  --muted-foreground: hsl(237, 13%, 33.3%);
+  --popover: hsl(36, 100%, 94.9%);
+  --popover-foreground: hsl(237, 13%, 33.3%);
+  --card: hsl(234, 30%, 85.9%); /* #C0C9EE - lavender-light */
+  --card-foreground: hsl(237, 13%, 33.3%);
+  --border: hsl(232, 25%, 80%); /* #A2AADB - lavender-medium */
+  --input: hsl(232, 25%, 80%);
+  --primary: hsl(231, 18%, 66.3%); /* #898AC4 - lavender-deep */
+  --primary-foreground: hsl(36, 100%, 94.9%);
+  --secondary: hsl(234, 30%, 85.9%); /* #C0C9EE - lavender-light */
+  --secondary-foreground: hsl(237, 13%, 33.3%);
+  --accent: hsl(232, 25%, 80%); /* #A2AADB - lavender-medium */
+  --accent-foreground: hsl(237, 13%, 33.3%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(36, 100%, 94.9%);
+  --ring: hsl(231, 18%, 66.3%);
+  --radius: 1.5rem;
+  
+  /* Custom color variables */
+  --cream: hsl(36, 100%, 94.9%); /* #FFF2E0 */
+  --lavender-light: hsl(234, 30%, 85.9%); /* #C0C9EE */
+  --lavender-medium: hsl(232, 25%, 80%); /* #A2AADB */
+  --lavender-deep: hsl(231, 18%, 66.3%); /* #898AC4 */
+  --text-warm: hsl(237, 13%, 33.3%); /* #4A4A5C */
+}
+
+.dark {
+  --background: hsl(237, 13%, 15%);
+  --foreground: hsl(36, 100%, 94.9%);
+  --muted: hsl(231, 18%, 30%);
+  --muted-foreground: hsl(234, 30%, 70%);
+  --popover: hsl(237, 13%, 15%);
+  --popover-foreground: hsl(36, 100%, 94.9%);
+  --card: hsl(231, 18%, 20%);
+  --card-foreground: hsl(36, 100%, 94.9%);
+  --border: hsl(231, 18%, 30%);
+  --input: hsl(231, 18%, 30%);
+  --primary: hsl(231, 18%, 66.3%);
+  --primary-foreground: hsl(36, 100%, 94.9%);
+  --secondary: hsl(231, 18%, 25%);
+  --secondary-foreground: hsl(36, 100%, 94.9%);
+  --accent: hsl(231, 18%, 30%);
+  --accent-foreground: hsl(36, 100%, 94.9%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(36, 100%, 94.9%);
+  --ring: hsl(231, 18%, 66.3%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased text-foreground;
+    background: var(--cream);
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--lavender-light) 100%);
+  }
+  
+  .card-shadow {
+    box-shadow: 0 8px 32px rgba(138, 138, 196, 0.1);
+  }
+  
+  .floating-card {
+    backdrop-filter: blur(10px);
+    background: rgba(192, 201, 238, 0.8);
+  }
+  
+  .journal-editor {
+    background: rgba(255, 242, 224, 0.9);
+    border: 2px solid rgba(162, 170, 219, 0.3);
+  }
+  
+  .ai-response {
+    background: linear-gradient(145deg, var(--lavender-light), var(--lavender-medium));
+  }
+  
+  .timeline-connector {
+    background: linear-gradient(to bottom, var(--lavender-medium), var(--lavender-deep));
+  }
+}
+
+@layer utilities {
+  .text-cream { color: var(--cream); }
+  .text-lavender-light { color: var(--lavender-light); }
+  .text-lavender-medium { color: var(--lavender-medium); }
+  .text-lavender-deep { color: var(--lavender-deep); }
+  .text-warm { color: var(--text-warm); }
+  
+  .bg-cream { background-color: var(--cream); }
+  .bg-lavender-light { background-color: var(--lavender-light); }
+  .bg-lavender-medium { background-color: var(--lavender-medium); }
+  .bg-lavender-deep { background-color: var(--lavender-deep); }
+  
+  .border-lavender-light { border-color: var(--lavender-light); }
+  .border-lavender-medium { border-color: var(--lavender-medium); }
+  .border-lavender-deep { border-color: var(--lavender-deep); }
+}
