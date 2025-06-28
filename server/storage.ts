@@ -3,7 +3,7 @@ import {
   journalEntries,
   aiResponses,
   userInsights,
-  adviceRequests,
+  adviceRequests,  //props, to fetch from other files where they were defined
   type User,
   type UpsertUser,
   type JournalEntry,
