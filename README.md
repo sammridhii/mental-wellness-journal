@@ -28,11 +28,23 @@ A beginner-friendly mental health journaling app with AI therapy assistant. Buil
 
 ## Getting Started
 
+### Local Development
 1. Clone the repository
 2. Install dependencies: `npm install`
 3. Set up your OpenAI API key (see Environment Variables section)
 4. Start the app: `npm run dev` or `node app.js`
 5. Open your browser to `http://localhost:5000`
+
+### Deploy to Vercel
+1. Fork this repository to your GitHub account
+2. Connect your GitHub account to Vercel
+3. Import this project in Vercel dashboard
+4. Add your environment variables in Vercel project settings:
+   - `OPENAI_API_KEY`: Your OpenAI API key
+   - `SESSION_SECRET`: A random string for session encryption
+5. Deploy! Vercel will automatically build and serve your app
+
+The `vercel.json` file is already configured to handle both the Node.js backend and static frontend files.
 
 ## Adding to GitHub
 
@@ -56,30 +68,29 @@ Replace `YOUR_USERNAME` and `YOUR_REPO_NAME` with your actual GitHub username an
 
 ## Environment Variables
 
-```
-DATABASE_URL=your_postgresql_url
-OPENAI_API_KEY=your_openai_api_key
-SESSION_SECRET=your_session_secret
-REPL_ID=your_replit_id
-ISSUER_URL=https://replit.com/oidc
+Copy `.env.example` to `.env` and fill in your values:
+
+- `OPENAI_API_KEY`: Your OpenAI API key for Dr. Mira's responses (get one at [OpenAI Platform](https://platform.openai.com/api-keys))
+- `SESSION_SECRET`: Secret key for session encryption (generate a random 32+ character string)
+- `DATABASE_PATH`: Optional, path to SQLite database file (defaults to `./mindmirror.db`)
+- `PORT`: Optional, server port (defaults to 5000)
+
+```bash
+cp .env.example .env
+# Then edit .env with your actual values
 ```
 
 ## Project Structure
 
 ```
-├── client/          # React frontend
-│   ├── src/
-│   │   ├── components/  # UI components
-│   │   ├── pages/       # Route pages
-│   │   ├── hooks/       # Custom hooks
-│   │   └── lib/         # Utilities
-├── server/          # Express backend
-│   ├── routes.ts    # API routes
-│   ├── storage.ts   # Database operations
-│   ├── openai.ts    # AI integration
-│   └── replitAuth.ts # Authentication
-├── shared/          # Shared types and schemas
-└── drizzle.config.ts # Database configuration
+├── public/          # Frontend files
+│   ├── index.html   # Main HTML page
+│   ├── styles.css   # Custom CSS with lavender theme
+│   └── app.js       # Vanilla JavaScript frontend
+├── app.js           # Express server with SQLite
+├── vercel.json      # Vercel deployment configuration
+├── package.json     # Dependencies and scripts
+└── README.md        # This file
 ```
 
 ## License
