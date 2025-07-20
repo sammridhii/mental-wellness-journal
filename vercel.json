@@ -1,35 +1,15 @@
 {
   "version": 2,
-  "name": "mindmirror",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "functions": {
-    "dist/index.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "routes": [
+  "builds": [
     {
-      "src": "/api/(.*)",
-      "dest": "/dist/index.js"
-    },
-    {
-      "src": "/(.*\\.(css|js|html|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf))",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000"
-      },
-      "dest": "/dist/public/$1"
-    },
-    {
-      "src": "/",
-      "dest": "/dist/public/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/dist/index.js"
+      "src": "server/index.ts",
+      "use": "@vercel/node"
     }
   ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/server/index.ts"
+    }
+  ]
 }
