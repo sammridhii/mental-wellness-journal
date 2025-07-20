@@ -5,6 +5,9 @@ import { setupVite, serveStatic, log } from "./vite";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static('public'));
+app.use(express.static('dist/public'));
+
 
 app.use((req, res, next) => {
   const start = Date.now();
